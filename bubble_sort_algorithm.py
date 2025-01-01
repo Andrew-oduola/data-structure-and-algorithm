@@ -8,7 +8,9 @@ def bubble_sort(arr):
     print("Bubble Sort")
     n = len(arr)
     for i in range(n-1):
+        print(f"i: {i}")
         for j in range(n-i-1): # n-i-1 not neglact the last element that was sorted in the previous iteration
+            print(f"n-i-1: {n-i-1}")
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
 
@@ -35,4 +37,4 @@ bubble_sort(my_array)
 
 my_array = [20, 23, 6, 35, 60, 80]
 
-improved_bubble_sort(my_array)
+# improved_bubble_sort(my_array)
