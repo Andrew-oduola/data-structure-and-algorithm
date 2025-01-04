@@ -1,17 +1,21 @@
-# Recursive Binary Search
+myArray = [170, 45, 75, 90, 802, 24, 2, 66]
+print("Original array:", myArray)
+radixArray = [[], [], [], [], [], [], [], [], [], []]
+maxVal = max(myArray)
+exp = 1
 
-def recursive_binary_search(array, target):
-    if len(array) == 0:
-        return False
-    else:
-        midpoint = len(array) // 2
+while maxVal // exp > 0:
 
-        if array[midpoint] == target:
-            return True
-        elif array[midpoint] < target:
-            return recursive_binary_search(array[midpoint+1:], target)
-        else:
-            return recursive_binary_search(array[:midpoint], target)
-        
-my_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(recursive_binary_search(my_array, 11))
+    while len(myArray) > 0:
+        val = myArray.pop()
+        radixIndex = (val // exp) % 10
+        radixArray[radixIndex].append(val)
+
+    for bucket in radixArray:
+        while len(bucket) > 0:
+            val = bucket.pop()
+            myArray.append(val)
+
+    exp *= 10
+
+print("Sorted array:", myArray)
