@@ -41,4 +41,25 @@ def findLowestValue(head):
         currentNode = currentNode.next
     return minValue
 
-print("Lowest value in the linked list: ", findLowestValue(node1))
+# print("Lowest value in the linked list: ", findLowestValue(node1))
+
+# deleting a specific node
+def deleteSpecificNode(head, nodeToDelete):
+    if head == nodeToDelete:
+        return head.next
+    
+    currentNode = head
+    while currentNode.next and currentNode.next != nodeToDelete:    
+        currentNode = currentNode.next
+
+    if currentNode.next is None:
+        return head
+    
+    currentNode.next = currentNode.next.next
+
+    return head
+
+node1 = deleteSpecificNode(node1, node4)
+
+print('Linked list after deletion')
+traverseAndPrint(node1)
