@@ -19,3 +19,14 @@ while currentNode:
     currentNode = currentNode.next
 
 print('null')
+
+
+# Transving a singly linked list
+def traverseAndPrint(head):
+    currentNode = head
+    while currentNode:
+        print(currentNode.data)
+        currentNode = currentNode.next
+    print('null')
+
+traverseAndPrint(node1)
