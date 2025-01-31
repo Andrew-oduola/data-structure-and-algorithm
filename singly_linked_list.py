@@ -61,5 +61,26 @@ def deleteSpecificNode(head, nodeToDelete):
 
 node1 = deleteSpecificNode(node1, node4)
 
-print('Linked list after deletion')
+# print('Linked list after deletion')
+# traverseAndPrint(node1)
+
+# inserting a node
+def insertNodeAtPosition(head, newNode, position):
+    if position == 1:
+        newNode.next = head
+        return newNode
+    
+    currentNode = head
+    for _ in range(position - 2):
+        if currentNode is None:
+            break
+        currentNode = currentNode.next
+
+    newNode.next = currentNode.next
+    currentNode.next = newNode
+    return head
+
+newNode = Node(92)
+node1 = insertNodeAtPosition(node1, newNode, 2)
+
 traverseAndPrint(node1)
