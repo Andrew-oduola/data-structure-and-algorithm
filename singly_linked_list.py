@@ -29,4 +29,16 @@ def traverseAndPrint(head):
         currentNode = currentNode.next
     print('null')
 
-traverseAndPrint(node1)
+# traverseAndPrint(node1)
+
+# Finding the lowest value in a singly linked list
+def findLowestValue(head):
+    minValue = head.data
+    currentNode = head.next
+    while currentNode:
+        if currentNode.data < minValue:
+            minValue = currentNode.data
+        currentNode = currentNode.next
+    return minValue
+
+print("Lowest value in the linked list: ", findLowestValue(node1))
